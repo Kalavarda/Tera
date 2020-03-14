@@ -66,5 +66,10 @@ namespace Cards
         {
             new CardsWindow(_data) { Owner = this }.Show();
         }
+
+        private void OnBonusTypesClick(object sender, RoutedEventArgs e)
+        {
+            new BonusTypesWindow(_data) { Owner = this }.Show();
+        }
     }
 }

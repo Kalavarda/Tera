@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Windows;
 
 namespace Cards.Windows
@@ -16,15 +18,32 @@ namespace Cards.Windows
             _cbQuality.ItemsSource = Enum.GetValues(typeof(Quality));
         }
 
-        public CardWindow(Card card): this()
+        public CardWindow(Card card, Data data): this()
         {
             _card = card ?? throw new ArgumentNullException(nameof(card));
+
+            _cbBonus1Type.ItemsSource = data.BonusTypes.OrderBy(bt => bt.Name);
+            _cbBonus2Type.ItemsSource = data.BonusTypes.OrderBy(bt => bt.Name);
 
             _tbName.Text = _card.Name;
             _cbAvailable.IsChecked = _card.Available;
             _cbCost.SelectedItem = _card.Cost;
             _cbSource.SelectedItem = _card.Source;
             _cbQuality.SelectedItem = _card.Quality;
+
+            var bonus1 = _card.Bonuses.Length >= 1 ? _card.Bonuses[0] : null;
+            if (bonus1 != null)
+            {
+                _cbBonus1Type.SelectedItem = data.BonusTypes.FirstOrDefault(bt => bt.Id == bonus1.BonusTypeId);
+                _tbBonus1Value.Text = bonus1.Value.ToString();
+            }
+
+            var bonus2 = _card.Bonuses.Length >= 2 ? _card.Bonuses[1] : null;
+            if (bonus2 != null)
+            {
+                _cbBonus2Type.SelectedItem = data.BonusTypes.FirstOrDefault(bt => bt.Id == bonus2.BonusTypeId);
+                _tbBonus2Value.Text = bonus2.Value.ToString();
+            }
         }
 
         private void OnOkClick(object sender, RoutedEventArgs e)
@@ -36,6 +55,7 @@ namespace Cards.Windows
                 _card.Cost = (int)_cbCost.SelectedItem;
                 _card.Source = (Source)_cbSource.SelectedItem;
                 _card.Quality = (Quality)_cbQuality.SelectedItem;
+                _card.Bonuses = ParseBonuses();
 
                 DialogResult = true;
             }
@@ -43,6 +63,32 @@ namespace Cards.Windows
             {
                 App.ShowError(error);
             }
+        }
+
+        private BonusValue[] ParseBonuses()
+        {
+            BonusValue bonus1 = null;
+            if (_cbBonus1Type.SelectedItem is BonusType bonus1Type)
+                bonus1 = new BonusValue
+                {
+                    BonusTypeId = bonus1Type.Id,
+                    Value = decimal.Parse(_tbBonus1Value.Text)
+                };
+
+            BonusValue bonus2 = null;
+            if (_cbBonus2Type.SelectedItem is BonusType bonus2Type)
+                bonus2 = new BonusValue
+                {
+                    BonusTypeId = bonus2Type.Id,
+                    Value = decimal.Parse(_tbBonus2Value.Text)
+                };
+
+            var bonusValues = new List<BonusValue>();
+            if (bonus1 != null)
+                bonusValues.Add(bonus1);
+            if (bonus2 != null)
+                bonusValues.Add(bonus2);
+            return bonusValues.ToArray();
         }
     }
 }

@@ -75,13 +75,16 @@ namespace Cards
         Territories
     }
 
-    public enum Bonus
+    public class BonusType
     {
+        public Guid Id { get; set; }
+
+        public string Name { get; set; }
     }
 
     public class BonusValue
     {
-        public Bonus Bonus { get; set; }
+        public Guid BonusTypeId { get; set; }
         
         public decimal Value { get; set; }
     }
@@ -90,9 +93,12 @@ namespace Cards
     {
         public Card[] Cards { get; set; }
 
+        public BonusType[] BonusTypes { get; set; }
+
         public Data()
         {
             Cards = new Card[0];
+            BonusTypes = new BonusType[0];
         }
 
         public void Save(Stream stream)
@@ -119,6 +125,15 @@ namespace Cards
             Cards = list.ToArray();
         }
 
+        public void Add(BonusType bonusType)
+        {
+            if (bonusType == null) throw new ArgumentNullException(nameof(bonusType));
+
+            var list = BonusTypes.ToList();
+            list.Add(bonusType);
+            BonusTypes = list.ToArray();
+        }
+
         public void Remove(IReadOnlyCollection<Card> cards)
         {
             if (cards == null) throw new ArgumentNullException(nameof(cards));
@@ -126,6 +141,15 @@ namespace Cards
             var list = Cards.ToList();
             list.RemoveAll(cards.Contains);
             Cards = list.ToArray();
+        }
+
+        public void Remove(IReadOnlyCollection<BonusType> bonusTypes)
+        {
+            if (bonusTypes == null) throw new ArgumentNullException(nameof(bonusTypes));
+
+            var list = BonusTypes.ToList();
+            list.RemoveAll(bonusTypes.Contains);
+            BonusTypes = list.ToArray();
         }
     }
 }

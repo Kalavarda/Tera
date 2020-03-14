@@ -23,6 +23,7 @@
             </MenuItem>
             <MenuItem Header="Справочники">
                 <MenuItem Header="Карты..." Click="OnCardsClick"/>
+                <MenuItem Header="Виды бонусов..." Click="OnBonusTypesClick"/>
             </MenuItem>
         </Menu>
     </Grid>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace Cards.Windows
 {
@@ -46,7 +47,7 @@ namespace Cards.Windows
         private void OnAddClick(object sender, RoutedEventArgs e)
         {
             var card = new Card { Id = Guid.NewGuid() };
-            if (new CardWindow(card) {Owner = this}.ShowDialog() == true)
+            if (new CardWindow(card, _data) {Owner = this}.ShowDialog() == true)
                 _data.Add(card);
 
             TuneControls();
@@ -65,13 +66,18 @@ namespace Cards.Windows
 
         private void OnEditClick(object sender, RoutedEventArgs e)
         {
-            if (new CardWindow(SelectedCard) { Owner = this }.ShowDialog() == true)
+            if (new CardWindow(SelectedCard, _data) { Owner = this }.ShowDialog() == true)
                 TuneControls();
         }
 
         private void OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             TuneControls();
+        }
+
+        private void OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            OnEditClick(sender, null);
         }
     }
 }
