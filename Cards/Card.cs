@@ -14,7 +14,7 @@ namespace Cards
 
         public int Cost { get; set; }
 
-        public Quality Quality { get; set; }
+        public Guid GradeId { get; set; }
         
         /// <summary>
         /// Имеется в наличии
@@ -24,7 +24,7 @@ namespace Cards
         /// <summary>
         /// Источник получения
         /// </summary>
-        public Source Source { get; set; }
+        public Guid SourceId { get; set; }
 
         public BonusValue[] Bonuses { get; set; }
 
@@ -47,35 +47,7 @@ namespace Cards
         Rare
     }
 
-    public enum Source
-    {
-        /// <summary>
-        /// Персонажи
-        /// </summary>
-        Character,
-
-        /// <summary>
-        /// Монстры
-        /// </summary>
-        Monsters,
-
-        /// <summary>
-        /// Материалы
-        /// </summary>
-        Materials,
-
-        /// <summary>
-        /// Рыбалка
-        /// </summary>
-        Fishing,
-
-        /// <summary>
-        /// Территории
-        /// </summary>
-        Territories
-    }
-
-    public class BonusType
+    public class BonusType : IReferenceRow
     {
         public Guid Id { get; set; }
 
@@ -89,67 +61,22 @@ namespace Cards
         public decimal Value { get; set; }
     }
 
-    public class Data
+    public interface IReferenceRow
     {
-        public Card[] Cards { get; set; }
+        string Name { get; set; }
+    }
 
-        public BonusType[] BonusTypes { get; set; }
+    public class Source : IReferenceRow
+    {
+        public Guid Id { get; set; }
 
-        public Data()
-        {
-            Cards = new Card[0];
-            BonusTypes = new BonusType[0];
-        }
+        public string Name { get; set; }
+    }
 
-        public void Save(Stream stream)
-        {
-            var serializer = new JsonSerializer();
-            using var writer = new StreamWriter(stream);
-            serializer.Serialize(writer, this);
-        }
+    public class Grade : IReferenceRow
+    {
+        public Guid Id { get; set; }
 
-        public static Data Load(Stream stream)
-        {
-            var serializer = new JsonSerializer();
-            using var reader = new StreamReader(stream);
-            using var jsonReader = new JsonTextReader(reader);
-            return serializer.Deserialize<Data>(jsonReader);
-        }
-
-        public void Add(Card card)
-        {
-            if (card == null) throw new ArgumentNullException(nameof(card));
-            
-            var list = Cards.ToList();
-            list.Add(card);
-            Cards = list.ToArray();
-        }
-
-        public void Add(BonusType bonusType)
-        {
-            if (bonusType == null) throw new ArgumentNullException(nameof(bonusType));
-
-            var list = BonusTypes.ToList();
-            list.Add(bonusType);
-            BonusTypes = list.ToArray();
-        }
-
-        public void Remove(IReadOnlyCollection<Card> cards)
-        {
-            if (cards == null) throw new ArgumentNullException(nameof(cards));
-
-            var list = Cards.ToList();
-            list.RemoveAll(cards.Contains);
-            Cards = list.ToArray();
-        }
-
-        public void Remove(IReadOnlyCollection<BonusType> bonusTypes)
-        {
-            if (bonusTypes == null) throw new ArgumentNullException(nameof(bonusTypes));
-
-            var list = BonusTypes.ToList();
-            list.RemoveAll(bonusTypes.Contains);
-            BonusTypes = list.ToArray();
-        }
+        public string Name { get; set; }
     }
 }

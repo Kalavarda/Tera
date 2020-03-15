@@ -1,7 +1,7 @@
-﻿<Window x:Class="Cards.Windows.BonusTypeWindow"
+﻿<Window x:Class="Cards.Windows.ReferenceRowWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Вид бонуса" Height="120" Width="320"
+        Height="120" Width="320"
         WindowStartupLocation="CenterOwner" ShowInTaskbar="False">
     <Window.Resources>
         <Style TargetType="TextBlock" BasedOn="{StaticResource DefaultText}"/>

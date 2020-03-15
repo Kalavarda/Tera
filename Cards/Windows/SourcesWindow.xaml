@@ -1,7 +1,7 @@
-﻿<Window x:Class="Cards.Windows.BonusTypesWindow"
+﻿<Window x:Class="Cards.Windows.SourcesWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Виды бонусов" Height="350" Width="400"
+        Title="Виды источников получения" Height="350" Width="400"
         WindowStartupLocation="CenterOwner" ShowInTaskbar="False">
     <Window.Resources>
         <Style TargetType="TextBlock" BasedOn="{StaticResource DefaultText}"/>

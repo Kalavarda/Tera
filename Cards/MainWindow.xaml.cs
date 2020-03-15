@@ -64,12 +64,17 @@ namespace Cards
 
         private void OnCardsClick(object sender, RoutedEventArgs e)
         {
-            new CardsWindow(_data) { Owner = this }.Show();
+            new CardsWindow(_data) { Owner = this }.ShowDialog();
         }
 
         private void OnBonusTypesClick(object sender, RoutedEventArgs e)
         {
-            new BonusTypesWindow(_data) { Owner = this }.Show();
+            new BonusTypesWindow(_data) {Owner = this}.ShowDialog();
+        }
+
+        private void OnSourcesClick(object sender, RoutedEventArgs e)
+        {
+            new SourcesWindow(_data) { Owner = this }.ShowDialog();
         }
     }
 }

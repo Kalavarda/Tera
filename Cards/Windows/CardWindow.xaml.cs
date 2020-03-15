@@ -14,7 +14,6 @@ namespace Cards.Windows
             InitializeComponent();
 
             _cbCost.ItemsSource = new[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-            _cbSource.ItemsSource = Enum.GetValues(typeof(Source));
             _cbQuality.ItemsSource = Enum.GetValues(typeof(Quality));
         }
 
@@ -22,14 +21,16 @@ namespace Cards.Windows
         {
             _card = card ?? throw new ArgumentNullException(nameof(card));
 
+            _cbSource.ItemsSource = data.Sources.OrderBy(bt => bt.Name);
+            _cbQuality.ItemsSource = data.Grades.OrderBy(bt => bt.Name);
             _cbBonus1Type.ItemsSource = data.BonusTypes.OrderBy(bt => bt.Name);
             _cbBonus2Type.ItemsSource = data.BonusTypes.OrderBy(bt => bt.Name);
 
             _tbName.Text = _card.Name;
             _cbAvailable.IsChecked = _card.Available;
             _cbCost.SelectedItem = _card.Cost;
-            _cbSource.SelectedItem = _card.Source;
-            _cbQuality.SelectedItem = _card.Quality;
+            _cbSource.SelectedItem = data.Sources.FirstOrDefault(s => s.Id == _card.SourceId);
+            _cbQuality.SelectedItem = data.Grades.FirstOrDefault(s => s.Id == _card.GradeId);
 
             var bonus1 = _card.Bonuses.Length >= 1 ? _card.Bonuses[0] : null;
             if (bonus1 != null)
@@ -53,8 +54,8 @@ namespace Cards.Windows
                 _card.Name = _tbName.Text;
                 _card.Available = _cbAvailable.IsChecked == true;
                 _card.Cost = (int)_cbCost.SelectedItem;
-                _card.Source = (Source)_cbSource.SelectedItem;
-                _card.Quality = (Quality)_cbQuality.SelectedItem;
+                _card.SourceId = ((Source)_cbSource.SelectedItem).Id;
+                _card.GradeId = ((Grade)_cbQuality.SelectedItem).Id;
                 _card.Bonuses = ParseBonuses();
 
                 DialogResult = true;

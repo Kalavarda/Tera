@@ -7,27 +7,27 @@ using System.Windows.Input;
 
 namespace Cards.Windows
 {
-    public partial class BonusTypesWindow
+    public partial class SourcesWindow
     {
         private readonly Data _data;
 
-        private IReadOnlyCollection<BonusType> SelectedBonusTypes => _lb.SelectedItems.OfType<BonusType>().ToArray();
+        private IReadOnlyCollection<Source> SelectedSources => _lb.SelectedItems.OfType<Source>().ToArray();
 
-        private BonusType SelectedBonusType
+        private Source SelectedSource
         {
             get
             {
-                var selected = SelectedBonusTypes;
+                var selected = SelectedSources;
                 return selected.Count == 1 ? selected.First() : null;
             }
         }
 
-        public BonusTypesWindow()
+        public SourcesWindow()
         {
             InitializeComponent();
         }
 
-        public BonusTypesWindow(Data data): this()
+        public SourcesWindow(Data data): this()
         {
             _data = data ?? throw new ArgumentNullException(nameof(data));
             TuneControls();
@@ -35,24 +35,24 @@ namespace Cards.Windows
 
         private void TuneControls()
         {
-            var selected = SelectedBonusTypes.Select(c => c.Id).ToArray();
-            _lb.ItemsSource = _data.BonusTypes.OrderBy(c => c.Name);
+            var selected = SelectedSources.Select(c => c.Id).ToArray();
+            _lb.ItemsSource = _data.Sources.OrderBy(c => c.Name);
             if (selected.Any())
-                _lb.SelectedItem = _data.BonusTypes.FirstOrDefault(c => selected.Any(s => s == c.Id));
+                _lb.SelectedItem = _data.Sources.FirstOrDefault(c => selected.Any(s => s == c.Id));
 
-            _btnEdit.IsEnabled = SelectedBonusType != null;
-            _btnRemove.IsEnabled = SelectedBonusTypes.Any();
+            _btnEdit.IsEnabled = SelectedSource != null;
+            _btnRemove.IsEnabled = SelectedSources.Any();
         }
 
         private void OnAddClick(object sender, RoutedEventArgs e)
         {
-            var bonusType = new BonusType { Id = Guid.NewGuid() };
-            if (new ReferenceRowWindow(bonusType, "Вид бонуса") { Owner = this }.ShowDialog() == true)
-                _data.Add(bonusType);
+            var source = new Source { Id = Guid.NewGuid() };
+            if (new ReferenceRowWindow(source, "Источник получения") { Owner = this }.ShowDialog() == true)
+                _data.Add(source);
 
             TuneControls();
 
-            _lb.SelectedItem = bonusType;
+            _lb.SelectedItem = source;
         }
 
         private void OnRemoveClick(object sender, RoutedEventArgs e)
@@ -60,13 +60,13 @@ namespace Cards.Windows
             if (MessageBox.Show("Удалить?", "Внимание", MessageBoxButton.YesNo, MessageBoxImage.Exclamation, MessageBoxResult.No) != MessageBoxResult.Yes)
                 return;
 
-            _data.Remove(SelectedBonusTypes);
+            _data.Remove(SelectedSources);
             TuneControls();
         }
 
         private void OnEditClick(object sender, RoutedEventArgs e)
         {
-            if (new ReferenceRowWindow(SelectedBonusType, "Вид бонуса") { Owner = this }.ShowDialog() == true)
+            if (new ReferenceRowWindow(SelectedSource, "Источник получения") { Owner = this }.ShowDialog() == true)
                 TuneControls();
         }
 
