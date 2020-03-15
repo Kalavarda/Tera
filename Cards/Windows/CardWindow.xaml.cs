@@ -23,6 +23,7 @@ namespace Cards.Windows
 
             _cbSource.ItemsSource = data.Sources.OrderBy(bt => bt.Name);
             _cbQuality.ItemsSource = data.Grades.OrderBy(bt => bt.Name);
+            _cbTarget.ItemsSource = data.TargetTypes.OrderBy(bt => bt.Name);
             _cbBonus1Type.ItemsSource = data.BonusTypes.OrderBy(bt => bt.Name);
             _cbBonus2Type.ItemsSource = data.BonusTypes.OrderBy(bt => bt.Name);
 
@@ -31,6 +32,7 @@ namespace Cards.Windows
             _cbCost.SelectedItem = _card.Cost;
             _cbSource.SelectedItem = data.Sources.FirstOrDefault(s => s.Id == _card.SourceId);
             _cbQuality.SelectedItem = data.Grades.FirstOrDefault(s => s.Id == _card.GradeId);
+            _cbTarget.SelectedItem = data.TargetTypes.FirstOrDefault(s => s.Id == _card.TargetId);
 
             var bonus1 = _card.Bonuses.Length >= 1 ? _card.Bonuses[0] : null;
             if (bonus1 != null)
@@ -57,6 +59,7 @@ namespace Cards.Windows
                 _card.SourceId = ((Source)_cbSource.SelectedItem).Id;
                 _card.GradeId = ((Grade)_cbQuality.SelectedItem).Id;
                 _card.Bonuses = ParseBonuses();
+                _card.TargetId = ((TargetType)_cbTarget.SelectedItem).Id;
 
                 DialogResult = true;
             }

@@ -16,6 +16,8 @@ namespace Cards
 
         public Grade[] Grades { get; set; }
 
+        public TargetType[] TargetTypes { get; set; }
+
         public Data()
         {
             Cards = new Card[0];
@@ -23,9 +25,10 @@ namespace Cards
             Sources = new Source[0];
             Grades = new[]
             {
-                new Grade {Id = Guid.NewGuid(), Name = "Серый" },
-                new Grade {Id = Guid.NewGuid(), Name = "Зелёный" },
+                new Grade { Id = Guid.NewGuid(), Name = "Серый" },
+                new Grade { Id = Guid.NewGuid(), Name = "Зелёный" },
             };
+            TargetTypes = new TargetType[0];
         }
 
         public void Save(Stream stream)
@@ -79,6 +82,15 @@ namespace Cards
             Grades = list.ToArray();
         }
 
+        public void Add(TargetType targetType)
+        {
+            if (targetType == null) throw new ArgumentNullException(nameof(targetType));
+
+            var list = TargetTypes.ToList();
+            list.Add(targetType);
+            TargetTypes = list.ToArray();
+        }
+
         public void Remove(IReadOnlyCollection<Card> cards)
         {
             if (cards == null) throw new ArgumentNullException(nameof(cards));
@@ -113,6 +125,15 @@ namespace Cards
             var list = Grades.ToList();
             list.RemoveAll(grades.Contains);
             Grades = list.ToArray();
+        }
+
+        public void Remove(IReadOnlyCollection<TargetType> targetTypes)
+        {
+            if (targetTypes == null) throw new ArgumentNullException(nameof(targetTypes));
+
+            var list = TargetTypes.ToList();
+            list.RemoveAll(targetTypes.Contains);
+            TargetTypes = list.ToArray();
         }
     }
 }

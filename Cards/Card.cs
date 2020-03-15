@@ -26,6 +26,11 @@ namespace Cards
         /// </summary>
         public Guid SourceId { get; set; }
 
+        /// <summary>
+        /// На какую цель действует карта
+        /// </summary>
+        public Guid TargetId { get; set; }
+
         public BonusValue[] Bonuses { get; set; }
 
         public Card()
@@ -48,6 +53,13 @@ namespace Cards
     }
 
     public class BonusType : IReferenceRow
+    {
+        public Guid Id { get; set; }
+
+        public string Name { get; set; }
+    }
+
+    public class TargetType : IReferenceRow
     {
         public Guid Id { get; set; }
 

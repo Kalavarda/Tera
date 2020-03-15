@@ -76,5 +76,10 @@ namespace Cards
         {
             new SourcesWindow(_data) { Owner = this }.ShowDialog();
         }
+
+        private void OnTargetTypesClick(object sender, RoutedEventArgs e)
+        {
+            new TargetTypesWindow(_data) { Owner = this }.ShowDialog();
+        }
     }
 }

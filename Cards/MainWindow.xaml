@@ -25,6 +25,7 @@
                 <MenuItem Header="Карты..." Click="OnCardsClick"/>
                 <MenuItem Header="Виды бонусов..." Click="OnBonusTypesClick"/>
                 <MenuItem Header="Виды источников..." Click="OnSourcesClick"/>
+                <MenuItem Header="Цели..." Click="OnTargetTypesClick"/>
             </MenuItem>
         </Menu>
     </Grid>
