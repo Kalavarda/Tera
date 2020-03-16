@@ -23,6 +23,9 @@
                 <MenuItem Header="Виды источников..." Click="OnSourcesClick"/>
                 <MenuItem Header="Цели..." Click="OnTargetTypesClick"/>
             </MenuItem>
+            <MenuItem Header="Инструменты">
+                <MenuItem Header="Подобрать карты..." Click="OnSearchOptimalClick"/>
+            </MenuItem>
         </Menu>
 
         <userControls:CardsControl x:Name="_cardsControl" Grid.Row="1"/>

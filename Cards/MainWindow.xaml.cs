@@ -79,5 +79,10 @@ namespace Cards
         {
             new TargetTypesWindow(App.Data) { Owner = this }.ShowDialog();
         }
+
+        private void OnSearchOptimalClick(object sender, RoutedEventArgs e)
+        {
+            new SearchOptimalWindow(App.Data) { Owner = this }.ShowDialog();
+        }
     }
 }
