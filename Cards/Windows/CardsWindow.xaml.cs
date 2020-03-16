@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Input;
+using Cards.UserControls;
 
 namespace Cards.Windows
 {
@@ -11,7 +11,7 @@ namespace Cards.Windows
     {
         private readonly Data _data;
 
-        private IReadOnlyCollection<Card> SelectedCards => _lb.SelectedItems.OfType<Card>().ToArray();
+        private IReadOnlyCollection<Card> SelectedCards => _lb.SelectedItems.OfType<CardControl>().Select(c => c.Card).ToArray();
 
         private Card SelectedCard
         {
@@ -36,9 +36,13 @@ namespace Cards.Windows
         private void TuneControls()
         {
             var selected = SelectedCards.Select(c => c.Id).ToArray();
-            _lb.ItemsSource = _data.Cards.OrderBy(c => c.Name);
+            var cardControls = _data.Cards.OrderBy(c => c.Name).Select(c => new CardControl { Card = c });
+            _lb.ItemsSource = cardControls;
             if (selected.Any())
-                _lb.SelectedItem = _data.Cards.FirstOrDefault(c => selected.Any(s => s == c.Id));
+            {
+                var selectedCard = _data.Cards.FirstOrDefault(c => selected.Any(s => s == c.Id));
+                _lb.SelectedItem = cardControls.FirstOrDefault(cc => cc.Card == selectedCard);
+            }
 
             _btnEdit.IsEnabled = SelectedCard != null;
             _btnRemove.IsEnabled = SelectedCards.Any();
@@ -73,11 +77,6 @@ namespace Cards.Windows
         private void OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             TuneControls();
-        }
-
-        private void OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            OnEditClick(sender, null);
         }
     }
 }

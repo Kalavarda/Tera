@@ -15,13 +15,7 @@
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
 
-        <ListBox x:Name="_lb" SelectionMode="Extended" SelectionChanged="OnSelectionChanged" MouseDoubleClick="OnMouseDoubleClick">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <userControls:CardControl/>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+        <ListBox x:Name="_lb" SelectionMode="Extended" SelectionChanged="OnSelectionChanged"/>
 
         <StackPanel Grid.Column="1">
             <Button Content="Добавить..." Click="OnAddClick"/>

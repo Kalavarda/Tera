@@ -1,6 +1,12 @@
 ﻿<UserControl x:Class="Cards.UserControls.CardsControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <UserControl.Resources>
+        <Style TargetType="Expander">
+            <Setter Property="Margin" Value="2"/>
+            <Setter Property="Padding" Value="2"/>
+        </Style>
+    </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
@@ -9,7 +15,26 @@
 
         <Border BorderThickness="1" BorderBrush="#80808080" CornerRadius="2" Margin="2" Padding="2">
             <StackPanel>
-                <CheckBox x:Name="_cbAvailable" Content="В наличии" Checked="Filter_OnChecked" Unchecked="Filter_OnChecked"/>
+                <CheckBox x:Name="_cbAvailable" Content="В наличии" Checked="Filter_OnChanged" Unchecked="Filter_OnChanged"/>
+
+                <Expander Header="Цель">
+                    <ComboBox x:Name="_cbTarget" SelectionChanged="Filter_OnChanged">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Name, Mode=OneTime}"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </Expander>
+
+                <Expander Header="Качество">
+                    <ItemsControl x:Name="_icGrades"/>
+                </Expander>
+
+                <Expander Header="Бонусы">
+                    <ItemsControl x:Name="_icBonuses"/>
+                </Expander>
+
             </StackPanel>
         </Border>
 

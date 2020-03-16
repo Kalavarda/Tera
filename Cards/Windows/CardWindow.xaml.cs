@@ -69,11 +69,11 @@ namespace Cards.Windows
             }
         }
 
-        private static Guid? GetSelectedTarget(TargetType selectedItem)
+        public static Guid? GetSelectedTarget(TargetType selectedItem)
         {
             if (selectedItem == null)
-                return default;
-            return selectedItem.Name != TargetType.EmptyName ? selectedItem.Id : default;
+                return null;
+            return selectedItem.Name != TargetType.EmptyName ? selectedItem.Id : (Guid?)null;
         }
 
         private BonusValue[] ParseBonuses()

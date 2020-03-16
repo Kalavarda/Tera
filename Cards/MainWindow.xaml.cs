@@ -7,8 +7,6 @@ namespace Cards
 {
     public partial class MainWindow
     {
-        private Data _data = new Data();
-
         public MainWindow()
         {
             InitializeComponent();
@@ -17,10 +15,10 @@ namespace Cards
         private void Load(string fileName)
         {
             using var file = new FileStream(fileName, FileMode.Open, FileAccess.Read, FileShare.Read);
-            _data = Data.Load(file);
+            App.Load(file);
             //App.CurrentCharacter = _data.Characters.FirstOrDefault();
             //TuneControls(_data);
-            _cardsControl.Data = _data;
+            _cardsControl.Data = App.Data;
         }
 
         private void OnLoadClick(object sender, RoutedEventArgs e)
@@ -38,7 +36,7 @@ namespace Cards
             if (fileDialog.ShowDialog() == true)
             {
                 using (var file = new FileStream(fileDialog.FileName, FileMode.Create, FileAccess.Write, FileShare.None))
-                    _data.Save(file);
+                    App.Data.Save(file);
 
                 //Settings.Default.LastFileName = fileDialog.FileName;
                 //Settings.Default.Save();
@@ -58,28 +56,28 @@ namespace Cards
 
         private void OnNewClick(object sender, RoutedEventArgs e)
         {
-            _data = new Data();
-            _cardsControl.Data = _data;
+            App.New();
+            _cardsControl.Data = App.Data;
         }
 
         private void OnCardsClick(object sender, RoutedEventArgs e)
         {
-            new CardsWindow(_data) { Owner = this }.ShowDialog();
+            new CardsWindow(App.Data) { Owner = this }.ShowDialog();
         }
 
         private void OnBonusTypesClick(object sender, RoutedEventArgs e)
         {
-            new BonusTypesWindow(_data) {Owner = this}.ShowDialog();
+            new BonusTypesWindow(App.Data) { Owner = this}.ShowDialog();
         }
 
         private void OnSourcesClick(object sender, RoutedEventArgs e)
         {
-            new SourcesWindow(_data) { Owner = this }.ShowDialog();
+            new SourcesWindow(App.Data) { Owner = this }.ShowDialog();
         }
 
         private void OnTargetTypesClick(object sender, RoutedEventArgs e)
         {
-            new TargetTypesWindow(_data) { Owner = this }.ShowDialog();
+            new TargetTypesWindow(App.Data) { Owner = this }.ShowDialog();
         }
     }
 }
