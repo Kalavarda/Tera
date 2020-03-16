@@ -20,6 +20,7 @@ namespace Cards
             _data = Data.Load(file);
             //App.CurrentCharacter = _data.Characters.FirstOrDefault();
             //TuneControls(_data);
+            _cardsControl.Data = _data;
         }
 
         private void OnLoadClick(object sender, RoutedEventArgs e)
@@ -27,9 +28,7 @@ namespace Cards
             var fileDialog = new OpenFileDialog();
             TuneFileDialog(fileDialog);
             if (fileDialog.ShowDialog() == true)
-            {
                 Load(fileDialog.FileName);
-            }
         }
 
         private void OnSaveClick(object sender, RoutedEventArgs e)
@@ -60,6 +59,7 @@ namespace Cards
         private void OnNewClick(object sender, RoutedEventArgs e)
         {
             _data = new Data();
+            _cardsControl.Data = _data;
         }
 
         private void OnCardsClick(object sender, RoutedEventArgs e)

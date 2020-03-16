@@ -59,7 +59,7 @@ namespace Cards.Windows
                 _card.SourceId = ((Source)_cbSource.SelectedItem).Id;
                 _card.GradeId = ((Grade)_cbQuality.SelectedItem).Id;
                 _card.Bonuses = ParseBonuses();
-                _card.TargetId = ((TargetType)_cbTarget.SelectedItem).Id;
+                _card.TargetId = GetSelectedTarget((TargetType)_cbTarget.SelectedItem);
 
                 DialogResult = true;
             }
@@ -67,6 +67,13 @@ namespace Cards.Windows
             {
                 App.ShowError(error);
             }
+        }
+
+        private static Guid? GetSelectedTarget(TargetType selectedItem)
+        {
+            if (selectedItem == null)
+                return default;
+            return selectedItem.Name != TargetType.EmptyName ? selectedItem.Id : default;
         }
 
         private BonusValue[] ParseBonuses()

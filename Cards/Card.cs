@@ -29,7 +29,7 @@ namespace Cards
         /// <summary>
         /// На какую цель действует карта
         /// </summary>
-        public Guid TargetId { get; set; }
+        public Guid? TargetId { get; set; }
 
         public BonusValue[] Bonuses { get; set; }
 
@@ -61,6 +61,8 @@ namespace Cards
 
     public class TargetType : IReferenceRow
     {
+        public const string EmptyName = "-";
+
         public Guid Id { get; set; }
 
         public string Name { get; set; }

@@ -1,19 +1,15 @@
 ﻿<Window x:Class="Cards.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+        xmlns:userControls="clr-namespace:Cards.UserControls"
         Title="Карты" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition/>
-            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
 
-        <Menu Grid.ColumnSpan="2">
+        <Menu>
             <MenuItem Header="Файл">
                 <MenuItem Header="Создать..." Click="OnNewClick"/>
                 <MenuItem Header="Загрузить..." Click="OnLoadClick"/>
@@ -28,5 +24,7 @@
                 <MenuItem Header="Цели..." Click="OnTargetTypesClick"/>
             </MenuItem>
         </Menu>
+
+        <userControls:CardsControl x:Name="_cardsControl" Grid.Row="1"/>
     </Grid>
 </Window>
