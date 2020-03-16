@@ -6,6 +6,7 @@
             <Setter Property="Margin" Value="2"/>
             <Setter Property="Padding" Value="2"/>
         </Style>
+        <Style TargetType="CheckBox" BasedOn="{StaticResource DefaultCheckBox}"/>
     </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
@@ -18,21 +19,32 @@
                 <CheckBox x:Name="_cbAvailable" Content="В наличии" Checked="Filter_OnChanged" Unchecked="Filter_OnChanged"/>
 
                 <Expander Header="Цель">
-                    <ComboBox x:Name="_cbTarget" SelectionChanged="Filter_OnChanged">
-                        <ComboBox.ItemTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding Name, Mode=OneTime}"/>
-                            </DataTemplate>
-                        </ComboBox.ItemTemplate>
-                    </ComboBox>
+                    <StackPanel>
+                        <ComboBox x:Name="_cbTarget" SelectionChanged="Filter_OnChanged">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Name, Mode=OneTime}"/>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+                        <CheckBox x:Name="_cbWithoutTarget" Content="Без цели" Checked="Filter_OnChanged" Unchecked="Filter_OnChanged"/>
+                    </StackPanel>
                 </Expander>
 
-                <Expander Header="Качество">
+                <Expander Header="Ранг">
                     <ItemsControl x:Name="_icGrades"/>
+                </Expander>
+
+                <Expander Header="Источник">
+                    <ItemsControl x:Name="_icSources"/>
                 </Expander>
 
                 <Expander Header="Бонусы">
                     <ItemsControl x:Name="_icBonuses"/>
+                </Expander>
+
+                <Expander Header="Стоимость">
+                    <ItemsControl x:Name="_icCosts"/>
                 </Expander>
 
             </StackPanel>

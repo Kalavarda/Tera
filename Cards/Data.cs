@@ -8,6 +8,8 @@ namespace Cards
 {
     public class Data
     {
+        public static IReadOnlyCollection<int> Costs = new[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+
         public Card[] Cards { get; set; }
 
         public BonusType[] BonusTypes { get; set; }
@@ -40,7 +42,7 @@ namespace Cards
 
         public static Data Load(Stream stream)
         {
-            var serializer = new JsonSerializer();
+            var serializer = new JsonSerializer { Formatting = Formatting.Indented };
             using var reader = new StreamReader(stream);
             using var jsonReader = new JsonTextReader(reader);
             return serializer.Deserialize<Data>(jsonReader);

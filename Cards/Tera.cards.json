@@ -1,1 +1,351 @@
-{"Cards":[{"Id":"c974ccb6-a294-4d51-a7a7-12608edec276","Name":"Сеир","Cost":3,"GradeId":"1c8e0a4f-353f-44b1-9980-ec099096189b","Available":true,"SourceId":"803abf75-6d05-42b6-8c90-5e6fe9e8a6c0","TargetId":"00000000-0000-0000-0000-000000000000","Bonuses":[{"BonusTypeId":"9ca52636-490c-4742-b4c0-2ad8ca8fec6c","Value":763.0}]},{"Id":"ff712e06-0daf-4e58-befc-5a6f4b926ac8","Name":"Дугал","Cost":4,"GradeId":"1c8e0a4f-353f-44b1-9980-ec099096189b","Available":true,"SourceId":"803abf75-6d05-42b6-8c90-5e6fe9e8a6c0","TargetId":null,"Bonuses":[{"BonusTypeId":"f8e264d6-eb2c-4365-b8b2-c0c7fab923d2","Value":394.0},{"BonusTypeId":"d79ff941-31e6-45ea-8fa7-3682337c721b","Value":1579.0}]},{"Id":"4e08b618-62dc-40d6-ac00-7467287742c9","Name":"Карине","Cost":2,"GradeId":"1c8e0a4f-353f-44b1-9980-ec099096189b","Available":true,"SourceId":"803abf75-6d05-42b6-8c90-5e6fe9e8a6c0","TargetId":"00000000-0000-0000-0000-000000000000","Bonuses":[{"BonusTypeId":"053304fb-a872-443a-a8c9-78839b0f2345","Value":-2.0},{"BonusTypeId":"d79ff941-31e6-45ea-8fa7-3682337c721b","Value":419.0}]},{"Id":"4f02452b-a74e-4233-a000-62b4aa97d1ff","Name":"Тансерил","Cost":3,"GradeId":"1c8e0a4f-353f-44b1-9980-ec099096189b","Available":true,"SourceId":"803abf75-6d05-42b6-8c90-5e6fe9e8a6c0","TargetId":"00000000-0000-0000-0000-000000000000","Bonuses":[{"BonusTypeId":"65954f27-9e34-4373-9bbb-04ae0aa48513","Value":763.0}]},{"Id":"04284e52-7e03-407f-80fd-59b62a253500","Name":"Кейдос","Cost":4,"GradeId":"1c8e0a4f-353f-44b1-9980-ec099096189b","Available":true,"SourceId":"803abf75-6d05-42b6-8c90-5e6fe9e8a6c0","TargetId":"00000000-0000-0000-0000-000000000000","Bonuses":[{"BonusTypeId":"9ca52636-490c-4742-b4c0-2ad8ca8fec6c","Value":394.0},{"BonusTypeId":"65954f27-9e34-4373-9bbb-04ae0aa48513","Value":592.0}]},{"Id":"ff9dc300-4f8c-44fc-aa40-840d53dc0813","Name":"Пэйсен","Cost":7,"GradeId":"1c8e0a4f-353f-44b1-9980-ec099096189b","Available":true,"SourceId":"803abf75-6d05-42b6-8c90-5e6fe9e8a6c0","TargetId":"00000000-0000-0000-0000-000000000000","Bonuses":[{"BonusTypeId":"f8e264d6-eb2c-4365-b8b2-c0c7fab923d2","Value":1261.0},{"BonusTypeId":"d79ff941-31e6-45ea-8fa7-3682337c721b","Value":1892.0}]},{"Id":"6eee68db-2a5d-439a-9402-62e8cd008302","Name":"Золин","Cost":4,"GradeId":"1c8e0a4f-353f-44b1-9980-ec099096189b","Available":true,"SourceId":"803abf75-6d05-42b6-8c90-5e6fe9e8a6c0","TargetId":null,"Bonuses":[{"BonusTypeId":"d79ff941-31e6-45ea-8fa7-3682337c721b","Value":789.0},{"BonusTypeId":"65954f27-9e34-4373-9bbb-04ae0aa48513","Value":592.0}]},{"Id":"59ff5608-1a98-4bbb-a74a-ffe8ef7c4b5d","Name":"Ривенж","Cost":3,"GradeId":"1c8e0a4f-353f-44b1-9980-ec099096189b","Available":true,"SourceId":"803abf75-6d05-42b6-8c90-5e6fe9e8a6c0","TargetId":"00000000-0000-0000-0000-000000000000","Bonuses":[{"BonusTypeId":"9ca52636-490c-4742-b4c0-2ad8ca8fec6c","Value":152.0},{"BonusTypeId":"65954f27-9e34-4373-9bbb-04ae0aa48513","Value":610.0}]},{"Id":"e9c1e8a0-6469-47ea-9239-835d84f1596f","Name":"Эллеон","Cost":7,"GradeId":"1c8e0a4f-353f-44b1-9980-ec099096189b","Available":true,"SourceId":"803abf75-6d05-42b6-8c90-5e6fe9e8a6c0","TargetId":"00000000-0000-0000-0000-000000000000","Bonuses":[{"BonusTypeId":"9ca52636-490c-4742-b4c0-2ad8ca8fec6c","Value":630.0},{"BonusTypeId":"053304fb-a872-443a-a8c9-78839b0f2345","Value":6.0}]},{"Id":"375004d3-227e-41f3-b4ec-41f7ffd5adb2","Name":"Джелена","Cost":2,"GradeId":"1c8e0a4f-353f-44b1-9980-ec099096189b","Available":true,"SourceId":"803abf75-6d05-42b6-8c90-5e6fe9e8a6c0","TargetId":null,"Bonuses":[{"BonusTypeId":"053304fb-a872-443a-a8c9-78839b0f2345","Value":-3.0}]},{"Id":"180431db-da5b-4ccb-83f7-79eae525875b","Name":"Трой","Cost":5,"GradeId":"1c8e0a4f-353f-44b1-9980-ec099096189b","Available":true,"SourceId":"803abf75-6d05-42b6-8c90-5e6fe9e8a6c0","TargetId":"00000000-0000-0000-0000-000000000000","Bonuses":[{"BonusTypeId":"f8e264d6-eb2c-4365-b8b2-c0c7fab923d2","Value":1197.0},{"BonusTypeId":"d79ff941-31e6-45ea-8fa7-3682337c721b","Value":1197.0}]},{"Id":"4c510b6c-bf22-405e-ae63-d5b014afa540","Name":"Аурл","Cost":6,"GradeId":"1c8e0a4f-353f-44b1-9980-ec099096189b","Available":true,"SourceId":"803abf75-6d05-42b6-8c90-5e6fe9e8a6c0","TargetId":null,"Bonuses":[{"BonusTypeId":"9ca52636-490c-4742-b4c0-2ad8ca8fec6c","Value":1393.0}]},{"Id":"238f140c-e7ae-4226-b9f1-5a698f363a3e","Name":"Хенника","Cost":6,"GradeId":"1c8e0a4f-353f-44b1-9980-ec099096189b","Available":true,"SourceId":"803abf75-6d05-42b6-8c90-5e6fe9e8a6c0","TargetId":"00000000-0000-0000-0000-000000000000","Bonuses":[{"BonusTypeId":"f8e264d6-eb2c-4365-b8b2-c0c7fab923d2","Value":1672.0},{"BonusTypeId":"65954f27-9e34-4373-9bbb-04ae0aa48513","Value":557.0}]},{"Id":"c032f86e-9966-48af-a9a7-78907f397dcc","Name":"Леандр","Cost":4,"GradeId":"1c8e0a4f-353f-44b1-9980-ec099096189b","Available":true,"SourceId":"803abf75-6d05-42b6-8c90-5e6fe9e8a6c0","TargetId":"00000000-0000-0000-0000-000000000000","Bonuses":[{"BonusTypeId":"65954f27-9e34-4373-9bbb-04ae0aa48513","Value":987.0}]},{"Id":"0e45f8e0-6a6e-4333-9e92-2ba8774401d5","Name":"Йедвин","Cost":5,"GradeId":"1c8e0a4f-353f-44b1-9980-ec099096189b","Available":true,"SourceId":"803abf75-6d05-42b6-8c90-5e6fe9e8a6c0","TargetId":"00000000-0000-0000-0000-000000000000","Bonuses":[{"BonusTypeId":"f8e264d6-eb2c-4365-b8b2-c0c7fab923d2","Value":957.0},{"BonusTypeId":"65954f27-9e34-4373-9bbb-04ae0aa48513","Value":718.0}]},{"Id":"a10d63cf-b46b-4eac-8731-170ea6e48882","Name":"Лэндон","Cost":5,"GradeId":"1c8e0a4f-353f-44b1-9980-ec099096189b","Available":true,"SourceId":"803abf75-6d05-42b6-8c90-5e6fe9e8a6c0","TargetId":"00000000-0000-0000-0000-000000000000","Bonuses":[{"BonusTypeId":"d79ff941-31e6-45ea-8fa7-3682337c721b","Value":-1436.0},{"BonusTypeId":"65954f27-9e34-4373-9bbb-04ae0aa48513","Value":1915.0}]},{"Id":"35034c06-2bed-4622-907d-3f321e23f0d0","Name":"Сеир","Cost":3,"GradeId":"3f753ca4-98c4-4496-8e5f-dfa4cb084581","Available":true,"SourceId":"803abf75-6d05-42b6-8c90-5e6fe9e8a6c0","TargetId":"00000000-0000-0000-0000-000000000000","Bonuses":[{"BonusTypeId":"9ca52636-490c-4742-b4c0-2ad8ca8fec6c","Value":1145.0}]},{"Id":"1df1d1e8-4d03-492e-8a63-e54d9f48cb43","Name":"Дугал","Cost":4,"GradeId":"3f753ca4-98c4-4496-8e5f-dfa4cb084581","Available":true,"SourceId":"803abf75-6d05-42b6-8c90-5e6fe9e8a6c0","TargetId":null,"Bonuses":[{"BonusTypeId":"f8e264d6-eb2c-4365-b8b2-c0c7fab923d2","Value":592.0},{"BonusTypeId":"d79ff941-31e6-45ea-8fa7-3682337c721b","Value":2369.0}]}],"BonusTypes":[{"Id":"9ca52636-490c-4742-b4c0-2ad8ca8fec6c","Name":"Физ. защита"},{"Id":"f8e264d6-eb2c-4365-b8b2-c0c7fab923d2","Name":"Физ. урон"},{"Id":"d79ff941-31e6-45ea-8fa7-3682337c721b","Name":"Маг. урон"},{"Id":"053304fb-a872-443a-a8c9-78839b0f2345","Name":"Агрессия монстра"},{"Id":"65954f27-9e34-4373-9bbb-04ae0aa48513","Name":"Маг. защита"}],"Sources":[{"Id":"803abf75-6d05-42b6-8c90-5e6fe9e8a6c0","Name":"Персонаж"},{"Id":"3722d47c-d194-41c3-9e68-17f011d4e611","Name":"Монстр"},{"Id":"31524a23-5456-46b6-9211-21f3dfb395f8","Name":"Материал"},{"Id":"f5f41bbd-9fd3-4d4c-b03d-81e341a7342f","Name":"Рыбалка"},{"Id":"41afd868-2894-4046-b2e3-3badd6386b18","Name":"Территория"}],"Grades":[{"Id":"1c8e0a4f-353f-44b1-9980-ec099096189b","Name":"Серый"},{"Id":"3f753ca4-98c4-4496-8e5f-dfa4cb084581","Name":"Зелёный"}],"TargetTypes":[{"Id":"acb9155b-82d0-4970-bc85-b6f13db103d3","Name":"Аргон"},{"Id":"51ce0fee-27e1-4b6e-8349-7f127b883120","Name":"Аргаф"},{"Id":"1ff65db7-082f-47de-b48c-87f6abab754a","Name":"-"},{"Id":"3b0dea96-ad08-4b5f-a3f2-df4a79477c4c","Name":"Зверь"},{"Id":"8ffa8b9f-3cf6-4eef-8472-6e56161dfec7","Name":"Эксперимент"},{"Id":"c310d601-123d-4c22-81c8-e281317bea4e","Name":"Нечисть"},{"Id":"68308e38-ab4f-4703-9ade-cddffb81e174","Name":"Дракон"},{"Id":"d3163f67-1633-4b19-ba67-30c726d87ec5","Name":"Бог"},{"Id":"3381c4d3-d119-470e-b852-4938e4140afc","Name":"Растение"},{"Id":"7fd09e09-1974-47d2-b6f5-82f037d4a234","Name":"Гигант"},{"Id":"bc9c3382-7d6c-4ceb-a40e-a369127386f2","Name":"Фея"}]}
+{
+	"Cards": [{
+			"Id": "c974ccb6-a294-4d51-a7a7-12608edec276",
+			"Name": "Сеир",
+			"Cost": 3,
+			"GradeId": "1c8e0a4f-353f-44b1-9980-ec099096189b",
+			"Available": true,
+			"SourceId": "803abf75-6d05-42b6-8c90-5e6fe9e8a6c0",
+			"TargetId": null,
+			"Bonuses": [{
+					"BonusTypeId": "9ca52636-490c-4742-b4c0-2ad8ca8fec6c",
+					"Value": 763.0
+				}
+			]
+		}, {
+			"Id": "ff712e06-0daf-4e58-befc-5a6f4b926ac8",
+			"Name": "Дугал",
+			"Cost": 4,
+			"GradeId": "1c8e0a4f-353f-44b1-9980-ec099096189b",
+			"Available": true,
+			"SourceId": "803abf75-6d05-42b6-8c90-5e6fe9e8a6c0",
+			"TargetId": null,
+			"Bonuses": [{
+					"BonusTypeId": "f8e264d6-eb2c-4365-b8b2-c0c7fab923d2",
+					"Value": 394.0
+				}, {
+					"BonusTypeId": "d79ff941-31e6-45ea-8fa7-3682337c721b",
+					"Value": 1579.0
+				}
+			]
+		}, {
+			"Id": "4e08b618-62dc-40d6-ac00-7467287742c9",
+			"Name": "Карине",
+			"Cost": 2,
+			"GradeId": "1c8e0a4f-353f-44b1-9980-ec099096189b",
+			"Available": true,
+			"SourceId": "803abf75-6d05-42b6-8c90-5e6fe9e8a6c0",
+			"TargetId": null,
+			"Bonuses": [{
+					"BonusTypeId": "053304fb-a872-443a-a8c9-78839b0f2345",
+					"Value": -2.0
+				}, {
+					"BonusTypeId": "d79ff941-31e6-45ea-8fa7-3682337c721b",
+					"Value": 419.0
+				}
+			]
+		}, {
+			"Id": "4f02452b-a74e-4233-a000-62b4aa97d1ff",
+			"Name": "Тансерил",
+			"Cost": 3,
+			"GradeId": "1c8e0a4f-353f-44b1-9980-ec099096189b",
+			"Available": true,
+			"SourceId": "803abf75-6d05-42b6-8c90-5e6fe9e8a6c0",
+			"TargetId": null,
+			"Bonuses": [{
+					"BonusTypeId": "65954f27-9e34-4373-9bbb-04ae0aa48513",
+					"Value": 763.0
+				}
+			]
+		}, {
+			"Id": "04284e52-7e03-407f-80fd-59b62a253500",
+			"Name": "Кейдос",
+			"Cost": 4,
+			"GradeId": "1c8e0a4f-353f-44b1-9980-ec099096189b",
+			"Available": true,
+			"SourceId": "803abf75-6d05-42b6-8c90-5e6fe9e8a6c0",
+			"TargetId": null,
+			"Bonuses": [{
+					"BonusTypeId": "9ca52636-490c-4742-b4c0-2ad8ca8fec6c",
+					"Value": 394.0
+				}, {
+					"BonusTypeId": "65954f27-9e34-4373-9bbb-04ae0aa48513",
+					"Value": 592.0
+				}
+			]
+		}, {
+			"Id": "ff9dc300-4f8c-44fc-aa40-840d53dc0813",
+			"Name": "Пэйсен",
+			"Cost": 7,
+			"GradeId": "1c8e0a4f-353f-44b1-9980-ec099096189b",
+			"Available": true,
+			"SourceId": "803abf75-6d05-42b6-8c90-5e6fe9e8a6c0",
+			"TargetId": null,
+			"Bonuses": [{
+					"BonusTypeId": "f8e264d6-eb2c-4365-b8b2-c0c7fab923d2",
+					"Value": 1261.0
+				}, {
+					"BonusTypeId": "d79ff941-31e6-45ea-8fa7-3682337c721b",
+					"Value": 1892.0
+				}
+			]
+		}, {
+			"Id": "6eee68db-2a5d-439a-9402-62e8cd008302",
+			"Name": "Золин",
+			"Cost": 4,
+			"GradeId": "1c8e0a4f-353f-44b1-9980-ec099096189b",
+			"Available": true,
+			"SourceId": "803abf75-6d05-42b6-8c90-5e6fe9e8a6c0",
+			"TargetId": null,
+			"Bonuses": [{
+					"BonusTypeId": "d79ff941-31e6-45ea-8fa7-3682337c721b",
+					"Value": 789.0
+				}, {
+					"BonusTypeId": "65954f27-9e34-4373-9bbb-04ae0aa48513",
+					"Value": 592.0
+				}
+			]
+		}, {
+			"Id": "59ff5608-1a98-4bbb-a74a-ffe8ef7c4b5d",
+			"Name": "Ривенж",
+			"Cost": 3,
+			"GradeId": "1c8e0a4f-353f-44b1-9980-ec099096189b",
+			"Available": true,
+			"SourceId": "803abf75-6d05-42b6-8c90-5e6fe9e8a6c0",
+			"TargetId": null,
+			"Bonuses": [{
+					"BonusTypeId": "9ca52636-490c-4742-b4c0-2ad8ca8fec6c",
+					"Value": 152.0
+				}, {
+					"BonusTypeId": "65954f27-9e34-4373-9bbb-04ae0aa48513",
+					"Value": 610.0
+				}
+			]
+		}, {
+			"Id": "e9c1e8a0-6469-47ea-9239-835d84f1596f",
+			"Name": "Эллеон",
+			"Cost": 7,
+			"GradeId": "1c8e0a4f-353f-44b1-9980-ec099096189b",
+			"Available": true,
+			"SourceId": "803abf75-6d05-42b6-8c90-5e6fe9e8a6c0",
+			"TargetId": null,
+			"Bonuses": [{
+					"BonusTypeId": "9ca52636-490c-4742-b4c0-2ad8ca8fec6c",
+					"Value": 630.0
+				}, {
+					"BonusTypeId": "053304fb-a872-443a-a8c9-78839b0f2345",
+					"Value": 6.0
+				}
+			]
+		}, {
+			"Id": "375004d3-227e-41f3-b4ec-41f7ffd5adb2",
+			"Name": "Джелена",
+			"Cost": 2,
+			"GradeId": "1c8e0a4f-353f-44b1-9980-ec099096189b",
+			"Available": true,
+			"SourceId": "803abf75-6d05-42b6-8c90-5e6fe9e8a6c0",
+			"TargetId": null,
+			"Bonuses": [{
+					"BonusTypeId": "053304fb-a872-443a-a8c9-78839b0f2345",
+					"Value": -3.0
+				}
+			]
+		}, {
+			"Id": "180431db-da5b-4ccb-83f7-79eae525875b",
+			"Name": "Трой",
+			"Cost": 5,
+			"GradeId": "1c8e0a4f-353f-44b1-9980-ec099096189b",
+			"Available": true,
+			"SourceId": "803abf75-6d05-42b6-8c90-5e6fe9e8a6c0",
+			"TargetId": null,
+			"Bonuses": [{
+					"BonusTypeId": "f8e264d6-eb2c-4365-b8b2-c0c7fab923d2",
+					"Value": 1197.0
+				}, {
+					"BonusTypeId": "d79ff941-31e6-45ea-8fa7-3682337c721b",
+					"Value": 1197.0
+				}
+			]
+		}, {
+			"Id": "4c510b6c-bf22-405e-ae63-d5b014afa540",
+			"Name": "Аурл",
+			"Cost": 6,
+			"GradeId": "1c8e0a4f-353f-44b1-9980-ec099096189b",
+			"Available": true,
+			"SourceId": "803abf75-6d05-42b6-8c90-5e6fe9e8a6c0",
+			"TargetId": null,
+			"Bonuses": [{
+					"BonusTypeId": "9ca52636-490c-4742-b4c0-2ad8ca8fec6c",
+					"Value": 1393.0
+				}
+			]
+		}, {
+			"Id": "238f140c-e7ae-4226-b9f1-5a698f363a3e",
+			"Name": "Хенника",
+			"Cost": 6,
+			"GradeId": "1c8e0a4f-353f-44b1-9980-ec099096189b",
+			"Available": true,
+			"SourceId": "803abf75-6d05-42b6-8c90-5e6fe9e8a6c0",
+			"TargetId": null,
+			"Bonuses": [{
+					"BonusTypeId": "f8e264d6-eb2c-4365-b8b2-c0c7fab923d2",
+					"Value": 1672.0
+				}, {
+					"BonusTypeId": "65954f27-9e34-4373-9bbb-04ae0aa48513",
+					"Value": 557.0
+				}
+			]
+		}, {
+			"Id": "c032f86e-9966-48af-a9a7-78907f397dcc",
+			"Name": "Леандр",
+			"Cost": 4,
+			"GradeId": "1c8e0a4f-353f-44b1-9980-ec099096189b",
+			"Available": true,
+			"SourceId": "803abf75-6d05-42b6-8c90-5e6fe9e8a6c0",
+			"TargetId": null,
+			"Bonuses": [{
+					"BonusTypeId": "65954f27-9e34-4373-9bbb-04ae0aa48513",
+					"Value": 987.0
+				}
+			]
+		}, {
+			"Id": "0e45f8e0-6a6e-4333-9e92-2ba8774401d5",
+			"Name": "Йедвин",
+			"Cost": 5,
+			"GradeId": "1c8e0a4f-353f-44b1-9980-ec099096189b",
+			"Available": true,
+			"SourceId": "803abf75-6d05-42b6-8c90-5e6fe9e8a6c0",
+			"TargetId": null,
+			"Bonuses": [{
+					"BonusTypeId": "f8e264d6-eb2c-4365-b8b2-c0c7fab923d2",
+					"Value": 957.0
+				}, {
+					"BonusTypeId": "65954f27-9e34-4373-9bbb-04ae0aa48513",
+					"Value": 718.0
+				}
+			]
+		}, {
+			"Id": "a10d63cf-b46b-4eac-8731-170ea6e48882",
+			"Name": "Лэндон",
+			"Cost": 5,
+			"GradeId": "1c8e0a4f-353f-44b1-9980-ec099096189b",
+			"Available": true,
+			"SourceId": "803abf75-6d05-42b6-8c90-5e6fe9e8a6c0",
+			"TargetId": null,
+			"Bonuses": [{
+					"BonusTypeId": "d79ff941-31e6-45ea-8fa7-3682337c721b",
+					"Value": -1436.0
+				}, {
+					"BonusTypeId": "65954f27-9e34-4373-9bbb-04ae0aa48513",
+					"Value": 1915.0
+				}
+			]
+		}, {
+			"Id": "35034c06-2bed-4622-907d-3f321e23f0d0",
+			"Name": "Сеир",
+			"Cost": 3,
+			"GradeId": "3f753ca4-98c4-4496-8e5f-dfa4cb084581",
+			"Available": true,
+			"SourceId": "803abf75-6d05-42b6-8c90-5e6fe9e8a6c0",
+			"TargetId": null,
+			"Bonuses": [{
+					"BonusTypeId": "9ca52636-490c-4742-b4c0-2ad8ca8fec6c",
+					"Value": 1145.0
+				}
+			]
+		}, {
+			"Id": "1df1d1e8-4d03-492e-8a63-e54d9f48cb43",
+			"Name": "Дугал",
+			"Cost": 4,
+			"GradeId": "3f753ca4-98c4-4496-8e5f-dfa4cb084581",
+			"Available": true,
+			"SourceId": "803abf75-6d05-42b6-8c90-5e6fe9e8a6c0",
+			"TargetId": null,
+			"Bonuses": [{
+					"BonusTypeId": "f8e264d6-eb2c-4365-b8b2-c0c7fab923d2",
+					"Value": 592.0
+				}, {
+					"BonusTypeId": "d79ff941-31e6-45ea-8fa7-3682337c721b",
+					"Value": 2369.0
+				}
+			]
+		}
+	],
+	"BonusTypes": [{
+			"Id": "9ca52636-490c-4742-b4c0-2ad8ca8fec6c",
+			"Name": "Физ. защита"
+		}, {
+			"Id": "f8e264d6-eb2c-4365-b8b2-c0c7fab923d2",
+			"Name": "Физ. урон"
+		}, {
+			"Id": "d79ff941-31e6-45ea-8fa7-3682337c721b",
+			"Name": "Маг. урон"
+		}, {
+			"Id": "053304fb-a872-443a-a8c9-78839b0f2345",
+			"Name": "Агрессия монстра"
+		}, {
+			"Id": "65954f27-9e34-4373-9bbb-04ae0aa48513",
+			"Name": "Маг. защита"
+		}
+	],
+	"Sources": [{
+			"Id": "803abf75-6d05-42b6-8c90-5e6fe9e8a6c0",
+			"Name": "Персонаж"
+		}, {
+			"Id": "3722d47c-d194-41c3-9e68-17f011d4e611",
+			"Name": "Монстр"
+		}, {
+			"Id": "31524a23-5456-46b6-9211-21f3dfb395f8",
+			"Name": "Материал"
+		}, {
+			"Id": "f5f41bbd-9fd3-4d4c-b03d-81e341a7342f",
+			"Name": "Рыбалка"
+		}, {
+			"Id": "41afd868-2894-4046-b2e3-3badd6386b18",
+			"Name": "Территория"
+		}
+	],
+	"Grades": [{
+			"Id": "1c8e0a4f-353f-44b1-9980-ec099096189b",
+			"Name": "Серый"
+		}, {
+			"Id": "3f753ca4-98c4-4496-8e5f-dfa4cb084581",
+			"Name": "Зелёный"
+		}
+	],
+	"TargetTypes": [{
+			"Id": "acb9155b-82d0-4970-bc85-b6f13db103d3",
+			"Name": "Аргон"
+		}, {
+			"Id": "51ce0fee-27e1-4b6e-8349-7f127b883120",
+			"Name": "Аргаф"
+		}, {
+			"Id": "1ff65db7-082f-47de-b48c-87f6abab754a",
+			"Name": "-"
+		}, {
+			"Id": "3b0dea96-ad08-4b5f-a3f2-df4a79477c4c",
+			"Name": "Зверь"
+		}, {
+			"Id": "8ffa8b9f-3cf6-4eef-8472-6e56161dfec7",
+			"Name": "Эксперимент"
+		}, {
+			"Id": "c310d601-123d-4c22-81c8-e281317bea4e",
+			"Name": "Нечисть"
+		}, {
+			"Id": "68308e38-ab4f-4703-9ade-cddffb81e174",
+			"Name": "Дракон"
+		}, {
+			"Id": "d3163f67-1633-4b19-ba67-30c726d87ec5",
+			"Name": "Бог"
+		}, {
+			"Id": "3381c4d3-d119-470e-b852-4938e4140afc",
+			"Name": "Растение"
+		}, {
+			"Id": "7fd09e09-1974-47d2-b6f5-82f037d4a234",
+			"Name": "Гигант"
+		}, {
+			"Id": "bc9c3382-7d6c-4ceb-a40e-a369127386f2",
+			"Name": "Фея"
+		}
+	]
+}

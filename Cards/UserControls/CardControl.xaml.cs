@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 using Cards.Windows;
 
@@ -18,6 +19,8 @@ namespace Cards.UserControls
                 {
                     _tbName.Visibility = Visibility.Collapsed;
                     _tbTarget.Visibility = Visibility.Collapsed;
+                    _tbBonus1.Visibility = Visibility.Collapsed;
+                    _tbBonus2.Visibility = Visibility.Collapsed;
                     return;
                 }
 
@@ -27,16 +30,39 @@ namespace Cards.UserControls
 
         private void RefreshData()
         {
+            _tbName.Visibility = Visibility.Visible;
             _tbName.Text = Card.Name;
 
             var target = Card.TargetId != null ? App.Data.TargetTypes.FirstOrDefault(t => t.Id == Card.TargetId) : null;
             if (target != null)
             {
                 _tbTarget.Visibility = Visibility.Visible;
-                _tbTarget.Text = target.Name;
+                _tbTarget.Text = "[" + target.Name + "]";
             }
             else
                 _tbTarget.Visibility = Visibility.Collapsed;
+
+            if (Card.Bonuses.Length >= 1)
+                SetBonusText(_tbBonus1, Card.Bonuses[0]);
+
+            if (Card.Bonuses.Length >= 2)
+                SetBonusText(_tbBonus2, Card.Bonuses[1]);
+        }
+
+        private static void SetBonusText(TextBlock textBlock, BonusValue bonus)
+        {
+            if (bonus == null)
+            {
+                textBlock.Visibility = Visibility.Collapsed;
+                return;
+            }
+
+            textBlock.Visibility = Visibility.Visible;
+            var bonusType = App.Data.BonusTypes.FirstOrDefault(bt => bt.Id == bonus.BonusTypeId);
+            if (bonusType != null)
+                textBlock.Text = bonusType.Name + ": " + bonus.Value;
+            else
+                textBlock.Text = "Error";
         }
 
         public CardControl()
