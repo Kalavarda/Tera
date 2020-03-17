@@ -35,6 +35,8 @@ namespace Cards
 
         public void Save(Stream stream)
         {
+            CalculateBonusInvert();
+
             var serializer = new JsonSerializer();
             using var writer = new StreamWriter(stream);
             serializer.Serialize(writer, this);
@@ -45,7 +47,9 @@ namespace Cards
             var serializer = new JsonSerializer { Formatting = Formatting.Indented };
             using var reader = new StreamReader(stream);
             using var jsonReader = new JsonTextReader(reader);
-            return serializer.Deserialize<Data>(jsonReader);
+            var data = serializer.Deserialize<Data>(jsonReader);
+            data.CalculateBonusInvert();
+            return data;
         }
 
         public void Add(Card card)
@@ -55,6 +59,8 @@ namespace Cards
             var list = Cards.ToList();
             list.Add(card);
             Cards = list.ToArray();
+
+            CalculateBonusInvert();
         }
 
         public void Add(BonusType bonusType)
@@ -136,6 +142,23 @@ namespace Cards
             var list = TargetTypes.ToList();
             list.RemoveAll(targetTypes.Contains);
             TargetTypes = list.ToArray();
+        }
+
+        private void CalculateBonusInvert()
+        {
+            var dict = new Dictionary<Guid, decimal>();
+            foreach (var bonus in Cards.SelectMany(c => c.Bonuses))
+                if (dict.ContainsKey(bonus.BonusTypeId))
+                    dict[bonus.BonusTypeId] += bonus.Value;
+                else
+                    dict.Add(bonus.BonusTypeId, bonus.Value);
+            
+            foreach (var pair in dict)
+            {
+                var bonusType = BonusTypes.FirstOrDefault(bt => bt.Id == pair.Key);
+                if (bonusType != null)
+                    bonusType.Inverted = pair.Value < 0;
+            }
         }
     }
 }

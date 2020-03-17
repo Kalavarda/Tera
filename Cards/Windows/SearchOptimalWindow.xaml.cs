@@ -58,7 +58,11 @@ namespace Cards.Windows
             try
             {
                 Cursor = Cursors.Wait;
-                var searchResults = finder.Search(new SearchQuery(totalCost, targetId, bonusIds1, bonusIds2));
+                var searchQuery = new SearchQuery(totalCost, targetId, bonusIds1, bonusIds2)
+                {
+                    AvailableOnly = _cbAvailable.IsChecked == true
+                };
+                var searchResults = finder.Search(searchQuery);
                 _cbResult.ItemsSource = searchResults;
                 if (searchResults.Any())
                     _cbResult.SelectedIndex = 0;

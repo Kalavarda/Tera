@@ -1,7 +1,7 @@
 ﻿<Window x:Class="Cards.Windows.SearchOptimalWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Подобрать карты" Height="640" Width="480"
+        Title="Подобрать карты" Height="800" Width="480"
         WindowStartupLocation="CenterOwner" ShowInTaskbar="False">
     <Window.Resources>
         <Style TargetType="Button" BasedOn="{StaticResource DefaultButton}"/>
@@ -13,9 +13,17 @@
             <Setter Property="Margin" Value="2"/>
             <Setter Property="Padding" Value="2"/>
         </Style>
+        <Style TargetType="Border">
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="BorderBrush" Value="#80808080"/>
+            <Setter Property="CornerRadius" Value="1"/>
+            <Setter Property="Margin" Value="2"/>
+            <Setter Property="Padding" Value="2"/>
+        </Style>
     </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -32,8 +40,10 @@
         <TextBlock Text="Суммарная стоимость: " HorizontalAlignment="Right"/>
         <TextBox x:Name="_tbCost" Grid.Column="1" Text="12"/>
 
-        <TextBlock Text="Цель: " Grid.Row="1" HorizontalAlignment="Right"/>
-        <ComboBox x:Name="_cbTarget" Grid.Column="1" Text="12" Grid.Row="1">
+        <CheckBox x:Name="_cbAvailable" Content="Среди доступных" Grid.Row="1" Grid.Column="1"/>
+
+        <TextBlock Text="Цель: " Grid.Row="2" HorizontalAlignment="Right"/>
+        <ComboBox x:Name="_cbTarget" Grid.Column="1" Text="12" Grid.Row="2">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding Name, Mode=OneWay}"/>
@@ -41,18 +51,26 @@
             </ComboBox.ItemTemplate>
         </ComboBox>
 
-        <Expander Header="Приоритетные бонусы" Grid.Row="2" Grid.ColumnSpan="2" IsExpanded="True">
-            <ItemsControl x:Name="_icBonuses1"/>
-        </Expander>
+        <Border Grid.Row="3" Grid.ColumnSpan="2">
+            <Expander Header="Приоритетные бонусы" IsExpanded="True">
+                <ScrollViewer VerticalScrollBarVisibility="Auto" Height="256">
+                    <ItemsControl x:Name="_icBonuses1"/>
+                </ScrollViewer>
+            </Expander>
+        </Border>
 
-        <Expander Header="Неприоритетные бонусы" Grid.Row="3" Grid.ColumnSpan="2" IsExpanded="True">
-            <ItemsControl x:Name="_icBonuses2"/>
-        </Expander>
+        <Border Grid.Row="4" Grid.ColumnSpan="2">
+            <Expander Header="Неприоритетные бонусы" IsExpanded="True">
+                <ScrollViewer VerticalScrollBarVisibility="Auto" Height="128">
+                    <ItemsControl x:Name="_icBonuses2"/>
+                </ScrollViewer>
+            </Expander>
+        </Border>
 
-        <Button Content="Подобрать" Grid.Row="4" Grid.ColumnSpan="2" HorizontalAlignment="Center" Click="OnSearchClick"/>
+        <Button Content="Подобрать" Grid.Row="5" Grid.ColumnSpan="2" HorizontalAlignment="Center" Click="OnSearchClick" Margin="15"/>
 
-        <TextBlock Text="Результат: " Grid.Row="5" HorizontalAlignment="Right"/>
-        <ComboBox x:Name="_cbResult" Grid.Column="1" Text="12" Grid.Row="5" SelectionChanged="OnSearchResultSelectionChanged">
+        <TextBlock Text="Результат: " Grid.Row="6" HorizontalAlignment="Right"/>
+        <ComboBox x:Name="_cbResult" Grid.Column="1" Text="12" Grid.Row="6" SelectionChanged="OnSearchResultSelectionChanged">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding Mode=OneWay}"/>
@@ -60,6 +78,6 @@
             </ComboBox.ItemTemplate>
         </ComboBox>
 
-        <WrapPanel x:Name="_panel" Grid.Row="6" Grid.ColumnSpan="2"/>
+        <WrapPanel x:Name="_panel" Grid.Row="7" Grid.ColumnSpan="2" Margin="5"/>
     </Grid>
 </Window>

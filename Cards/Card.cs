@@ -68,6 +68,11 @@ namespace Cards
         public Guid Id { get; set; }
 
         public string Name { get; set; }
+
+        /// <summary>
+        /// Чем меньше значение, тем лучше
+        /// </summary>
+        public bool Inverted { get; set; }
     }
 
     public class TargetType : IReferenceRow

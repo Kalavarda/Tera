@@ -14,6 +14,8 @@ namespace Cards
         public int TotalCost { get; }
 
         public Guid? Target { get; }
+
+        public bool AvailableOnly { get; set; }
         
         public IReadOnlyCollection<Guid> PriorityBonuses { get; }
 
@@ -82,7 +84,7 @@ namespace Cards
             foreach (var source in _data.Sources)
             {
                 var cardsFromSource = _data.Cards
-                    .Where(c => c.Available)
+                    .Where(c => !searchQuery.AvailableOnly || c.Available)
                     .Where(c => c.TargetId == null || c.TargetId.Value == searchQuery.Target)
                     .Where(c => c.SourceId == source.Id)
                     .Where(c => GetSearchRank(c, searchQuery) > 0)
@@ -105,8 +107,8 @@ namespace Cards
 
             return searchResults
                 .Where(sr => GetSearchRank(sr, searchQuery) == maxSearchRank)
-                .OrderByDescending(sr => sr.Bonuses.Where(b => searchQuery.PriorityBonuses.Contains(b.BonusTypeId)).Sum(b => b.Value))
-                .ThenByDescending(sr => sr.Bonuses.Where(b => searchQuery.NonPriorityBonuses.Contains(b.BonusTypeId)).Sum(b => b.Value))
+                .OrderByDescending(sr => sr.Bonuses.Where(b => searchQuery.PriorityBonuses.Contains(b.BonusTypeId)).Sum(b => b.TotalValue()))
+                .ThenByDescending(sr => sr.Bonuses.Where(b => searchQuery.NonPriorityBonuses.Contains(b.BonusTypeId)).Sum(b => b.TotalValue()))
                 .ToArray();
         }
 
@@ -115,10 +117,18 @@ namespace Cards
             var sum = 0;
             foreach (var bonus in card.Bonuses)
             {
+                var r = 1;
+                if (bonus.Value < 0)
+                {
+                    var bonusType = App.Data.BonusTypes.First(bt => bt.Id == bonus.BonusTypeId);
+                    if (!bonusType.Inverted)
+                        r = -1;
+                }
+
                 if (searchQuery.PriorityBonuses.Contains(bonus.BonusTypeId))
-                    sum += 2;
+                    sum += 2 * r;
                 if (searchQuery.NonPriorityBonuses.Contains(bonus.BonusTypeId))
-                    sum += 1;
+                    sum += r;
             }
             return sum;
         }
@@ -133,6 +143,9 @@ namespace Cards
 
         private static IEnumerable<SearchResult> GetSearchResults(ICollection<Card> cards, IReadOnlyCollection<IReadOnlyCollection<Card>> collections)
         {
+            if (!collections.Any())
+                return new SearchResult[0];
+
             var remainCollections = collections.Skip(1).ToArray();
 
             var list = new List<SearchResult>();
@@ -148,6 +161,15 @@ namespace Cards
             }
 
             return list;
+        }
+    }
+
+    public static class OptimalFinderExtensions
+    {
+        public static decimal TotalValue(this BonusValue bonusValue)
+        {
+            var bonusType = App.Data.BonusTypes.First(bt => bt.Id == bonusValue.BonusTypeId);
+            return bonusType.Inverted ? -bonusValue.Value : bonusValue.Value;
         }
     }
 }
