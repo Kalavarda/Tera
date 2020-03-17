@@ -4,6 +4,8 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
+using System.Windows.Input;
+using Cards.UserControls;
 
 namespace Cards.Windows
 {
@@ -45,17 +47,43 @@ namespace Cards.Windows
                 }
 
             var bonusIds2 = new List<Guid>();
-            foreach (var checkBox in _icBonuses1.Items.Cast<ToggleButton>())
+            foreach (var checkBox in _icBonuses2.Items.Cast<ToggleButton>())
                 if (checkBox.IsChecked == true)
                 {
                     var bonus = (BonusType)checkBox.DataContext;
                     bonusIds2.Add(bonus.Id);
                 }
 
-            IOptimalFinder finder = new OptimalFinder();
-            var cards = finder.Find(totalCost, targetId, bonusIds1, bonusIds2);
+            IOptimalFinder finder = new OptimalFinder(_data);
+            try
+            {
+                Cursor = Cursors.Wait;
+                var searchResults = finder.Search(new SearchQuery(totalCost, targetId, bonusIds1, bonusIds2));
+                _cbResult.ItemsSource = searchResults;
+                if (searchResults.Any())
+                    _cbResult.SelectedIndex = 0;
+            }
+            finally
+            {
+                Cursor = null;
+            }
+        }
+        
+        private void RefreshCards(SearchResult searchResult)
+        {
+            _panel.Children.Clear();
 
-            throw new NotImplementedException();
+            if (searchResult == null)
+                return;
+
+            foreach (var card in searchResult.Cards.OrderBy(c => c.Name))
+                _panel.Children.Add(new CardControl { Card = card });
+        }
+
+        private void OnSearchResultSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var selectedItem = ((Selector)sender).SelectedItem;
+            RefreshCards((SearchResult)selectedItem);
         }
     }
 }

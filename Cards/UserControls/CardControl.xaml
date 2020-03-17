@@ -6,7 +6,7 @@
             <Setter Property="Margin" Value="2 0"/>
         </Style>
     </UserControl.Resources>
-    <Border BorderThickness="1" BorderBrush="#80808080" CornerRadius="1" Margin="2" Padding="2" Background="#01808080" MouseLeftButtonDown="OnMouseLeftButtonDown">
+    <Border BorderThickness="1" BorderBrush="#80808080" CornerRadius="1" Margin="2" Padding="2" Background="#01808080" MouseLeftButtonDown="OnMouseLeftButtonDown" Cursor="Hand">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition/>
