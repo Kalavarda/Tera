@@ -1,7 +1,7 @@
 ﻿<Window x:Class="Cards.Windows.SearchOptimalWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Подобрать карты" Height="800" Width="480"
+        Title="Подобрать карты" Height="960" Width="480"
         WindowStartupLocation="CenterOwner" ShowInTaskbar="False">
     <Window.Resources>
         <Style TargetType="Button" BasedOn="{StaticResource DefaultButton}"/>
@@ -51,21 +51,22 @@
             </ComboBox.ItemTemplate>
         </ComboBox>
 
-        <Border Grid.Row="3" Grid.ColumnSpan="2">
+        <Grid Grid.Row="3" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
             <Expander Header="Приоритетные бонусы" IsExpanded="True">
                 <ScrollViewer VerticalScrollBarVisibility="Auto" Height="256">
                     <ItemsControl x:Name="_icBonuses1"/>
                 </ScrollViewer>
             </Expander>
-        </Border>
-
-        <Border Grid.Row="4" Grid.ColumnSpan="2">
-            <Expander Header="Неприоритетные бонусы" IsExpanded="True">
-                <ScrollViewer VerticalScrollBarVisibility="Auto" Height="128">
+            <Expander Header="Дополнительные бонусы" IsExpanded="True" Grid.Column="1">
+                <ScrollViewer VerticalScrollBarVisibility="Auto" Height="256">
                     <ItemsControl x:Name="_icBonuses2"/>
                 </ScrollViewer>
             </Expander>
-        </Border>
+        </Grid>
 
         <Button Content="Подобрать" Grid.Row="5" Grid.ColumnSpan="2" HorizontalAlignment="Center" Click="OnSearchClick" Margin="15"/>
 
@@ -78,6 +79,8 @@
             </ComboBox.ItemTemplate>
         </ComboBox>
 
-        <WrapPanel x:Name="_panel" Grid.Row="7" Grid.ColumnSpan="2" Margin="5"/>
+        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Grid.Row="7" Grid.ColumnSpan="2">
+            <WrapPanel x:Name="_panel"/>
+        </ScrollViewer>
     </Grid>
 </Window>

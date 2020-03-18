@@ -120,13 +120,14 @@ namespace Cards
                 var r = 1;
                 if (bonus.Value < 0)
                 {
+                    r = -1;
                     var bonusType = App.Data.BonusTypes.First(bt => bt.Id == bonus.BonusTypeId);
-                    if (!bonusType.Inverted)
-                        r = -1;
+                    if (bonusType.Inverted)
+                        r = 1;
                 }
 
                 if (searchQuery.PriorityBonuses.Contains(bonus.BonusTypeId))
-                    sum += 2 * r;
+                    sum += 4 * r;
                 if (searchQuery.NonPriorityBonuses.Contains(bonus.BonusTypeId))
                     sum += r;
             }

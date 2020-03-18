@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
 using Cards.Windows;
 
 namespace Cards.UserControls
@@ -21,6 +22,7 @@ namespace Cards.UserControls
                     _tbTarget.Visibility = Visibility.Collapsed;
                     _tbBonus1.Visibility = Visibility.Collapsed;
                     _tbBonus2.Visibility = Visibility.Collapsed;
+                    _tbCost.Visibility = Visibility.Collapsed;
                     return;
                 }
 
@@ -47,6 +49,13 @@ namespace Cards.UserControls
 
             if (Card.Bonuses.Length >= 2)
                 SetBonusText(_tbBonus2, Card.Bonuses[1]);
+
+            var source = App.Data.Sources.First(s => s.Id == Card.SourceId);
+            _tbCost.Visibility = Visibility.Visible;
+            _tbCost.Text = $"{Card.Cost} ({source.Name})";
+
+            if (Card.Available)
+                _border.BorderBrush = Brushes.Black;
         }
 
         private static void SetBonusText(TextBlock textBlock, BonusValue bonus)
