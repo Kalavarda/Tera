@@ -4,6 +4,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
+using System.Windows.Input;
 using Cards.Windows;
 
 namespace Cards.UserControls
@@ -61,6 +62,7 @@ namespace Cards.UserControls
                     });
 
                 RefreshCards();
+                RefreshControls();
             }
         }
 
@@ -76,11 +78,18 @@ namespace Cards.UserControls
         public CardsControl()
         {
             InitializeComponent();
+
+            Loaded += (sender, e) => _tbSearch.Focus();
         }
 
         private void Filter_OnChanged(object sender, RoutedEventArgs e)
         {
             RefreshCards();
+            RefreshControls();
+        }
+
+        private void RefreshControls()
+        {
         }
 
         private bool HideByFilter(Card card)
@@ -113,6 +122,26 @@ namespace Cards.UserControls
             if (filter.Costs.Any())
                 if (!filter.Costs.Contains(card.Cost))
                     return true;
+
+            if (!string.IsNullOrWhiteSpace(filter.SearchText) && filter.SearchText.Length >= 3)
+                if (!CompliesWithFilter(card, filter))
+                    return true;
+
+            return false;
+        }
+
+        private static bool CompliesWithFilter(Card card, Filter filter)
+        {
+            if (card.Name.Contains(filter.SearchText, StringComparison.InvariantCultureIgnoreCase))
+                return true;
+
+            if (card.TargetId != null)
+            {
+                var target = App.Data.TargetTypes.FirstOrDefault(t => t.Id == card.TargetId);
+                if (target != null)
+                    if (target.Name.Contains(filter.SearchText, StringComparison.InvariantCultureIgnoreCase))
+                        return true;
+            }
 
             return false;
         }
@@ -159,7 +188,8 @@ namespace Cards.UserControls
                 GradeIds = gradeIds,
                 BonusIds = bonusIds,
                 Costs = costs,
-                SourceIds = sourceIds
+                SourceIds = sourceIds,
+                SearchText = _tbSearch.Text
             };
         }
 
@@ -178,6 +208,14 @@ namespace Cards.UserControls
             public IReadOnlyCollection<Guid> SourceIds { get; set; }
 
             public IReadOnlyCollection<int> Costs { get; set; }
+            
+            public string SearchText { get; set; }
+        }
+
+        private void OnSearchKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Escape)
+                _tbSearch.Text = string.Empty;
         }
     }
 }

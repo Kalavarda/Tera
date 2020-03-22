@@ -9,12 +9,23 @@
         <Style TargetType="CheckBox" BasedOn="{StaticResource DefaultCheckBox}"/>
     </UserControl.Resources>
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <Border BorderThickness="1" BorderBrush="#80808080" CornerRadius="2" Margin="2" Padding="2">
+        <Border BorderThickness="1" BorderBrush="#80808080" CornerRadius="2" Margin="2" Padding="2" Grid.Column="1">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Найти: "/>
+                <TextBox x:Name="_tbSearch" TextChanged="Filter_OnChanged" KeyDown="OnSearchKeyDown" MinWidth="128"/>
+            </StackPanel>
+        </Border>
+
+        <Border BorderThickness="1" BorderBrush="#80808080" CornerRadius="2" Margin="2" Padding="2" Grid.RowSpan="2">
             <StackPanel>
                 <CheckBox x:Name="_cbAvailable" Content="В наличии" Checked="Filter_OnChanged" Unchecked="Filter_OnChanged"/>
 
@@ -50,7 +61,8 @@
             </StackPanel>
         </Border>
 
-        <WrapPanel x:Name="_panel" Grid.Column="1">
-        </WrapPanel>
+        <ScrollViewer Grid.Column="1" Grid.Row="1">
+            <WrapPanel x:Name="_panel"/>
+        </ScrollViewer>
     </Grid>
 </UserControl>
